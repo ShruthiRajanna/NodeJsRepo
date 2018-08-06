@@ -1,0 +1,20 @@
+version: 0.1
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t nodejs .
+      - docker tag nodejs:latest  067955497367.dkr.ecr.us-east-1.amazonaws.com/nodejs:latest
+  post_build:
+    commands:
+      - echo Pushing the Docker image...
+      - docker push 067955497367.dkr.ecr.us-east-1.amazonaws.com/nodejs:latest
+      - printf '[{"name":"NodeApp","imageUri":"067955497367.dkr.ecr.us-east-1.amazonaws.com/nodejs:latest"}]' >  imagedefinitions.json
+artifacts:
+  files:
+    - imagedefinitions.json

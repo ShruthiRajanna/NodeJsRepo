@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "emp_id": {
+            "type": "number",
+            "minimum": 1
+        },
+        "emp_city": {
+            "type": "string",
+            "minLength": 1
+        },
+        "emp_name": {
+            "type": "string",
+            "minLength": 1
+        }
+    },
+    "required": [
+        "emp_id",
+        "emp_city",
+        "emp_name"
+    ]
+}

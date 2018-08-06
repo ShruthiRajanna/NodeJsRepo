@@ -1,0 +1,24 @@
+{
+    "CREDENTIALS": {
+        "CASSANDRA": {
+            "USERNAME": "node_usr",
+            "PASSWORD": "node_usr_passwd"
+        }
+    },
+    "VARIABLES": {
+        "CASSANDRA": {
+            "CONTACT_POINTS": [
+                "10.1.1.23"
+            ]
+        }
+    },
+    "CONSTANTS": {
+        "CASSANDRA": {
+            "KEYSPACE": "sample",
+            "EMPLOYEE_TABLE": "emp"
+        },
+        "BASE_ROUTE": "/v1/employee/",
+        "SWAGGER_ROUTE": "/api/docs",
+        "PORT": "3000"
+    }
+}
